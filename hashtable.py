@@ -1,6 +1,3 @@
-from typing import SupportsFloat
-
-
 class HashTable:
 
     def __init__(self):
@@ -38,15 +35,22 @@ class HashTable:
                 return v
             else:
                 raise KeyError('the value does not exist')
+    
+    
+    def __setitem__(self, key, value):
+        return self.set(key, value)
+
+    def __getitem__(self, key):
+        return self.get(key)
 
 
 H = HashTable()
 
+H['5'] = 'green'
+H['2'] = 'yellow'
+H['10'] = 'blue'
+H['7'] = 'red'
+H['1'] = 'purple'
+H['4'] = 'white'
 
-H.set(10,'value1')
-H.set(20,'value2')
-H.set('key3','value3')
-
-print(H.get(10))
-
-print(H.hashmap)
+print (H['5'])
